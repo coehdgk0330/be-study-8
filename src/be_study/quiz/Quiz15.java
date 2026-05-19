@@ -13,7 +13,7 @@ public class Quiz15 {
 		
 		int menu = 0;
 		
-		while( menu != 5 ) {
+		while( menu != 5 ) {						//리팩토링
 			
 			//메뉴표시
 			for(int i=0; i<menuArr.length; i++) {

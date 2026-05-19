@@ -91,7 +91,6 @@ public class Iter02 {
 		while(i<=10) {
 			
 			if(i==5) {
-				i++;
 				continue;
 			}
 			System.out.println(i); // 1 2 3 4 . . . .

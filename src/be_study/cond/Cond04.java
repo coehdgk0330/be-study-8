@@ -1,4 +1,4 @@
-package cond;
+package be_study.cond;
 
 public class Cond04 {
 

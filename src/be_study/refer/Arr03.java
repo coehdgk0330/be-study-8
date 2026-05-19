@@ -31,13 +31,13 @@ public class Arr03 {
 		System.out.println(arr3.length);
 		System.out.println(arr3[0].length);
 		
-		System.out.println(arr3[0]== arr3[1]);
-		System.out.println(arr3[0][0] == arr3 [1][1]);
-		System.out.println(arr3[0][0].equals(arr3 [1][1]));
+		System.out.println(arr3[0]== arr3[1]);				//주소비교
+		System.out.println(arr3[0][0] == arr3 [1][1]);		//주소비교	
+		System.out.println(arr3[0][0].equals(arr3 [1][1])); //값비교
 		
 		int[][] arr4 = { { 1,2,3},{4,5,6}};
-		System.out.println(arr4[0] == arr4[1]);
-		System.out.println(arr4[0][0] == arr4[1][1]);
+		System.out.println(arr4[0] == arr4[1]);				//주소비교
+		System.out.println(arr4[0][0] == arr4[1][1]);		//값 비교 int 기본타입
 		
 		 
 	}			String s ="커피";

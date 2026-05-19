@@ -63,6 +63,14 @@ public class Variable02 {
 		//논리형 true false
 		// 참 거짓
 		boolean open = true;
+		boolean close = false;
+		boolean stop = false;
+		
+		// is.. has...
+		boolean isOpened = true;
+		boolean isClosed = false;
+		
+		boolean hasOption = true;
 		
 		
 		

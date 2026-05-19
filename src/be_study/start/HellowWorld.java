@@ -16,7 +16,7 @@ public class HellowWorld {
 		/* 여러줄 주석
 		 ㅇㄹㅇㄹㅇㄹㅇ*/
 		 
-		System.out.println("한글");
+		System.out.println("");
 	}
 
 }

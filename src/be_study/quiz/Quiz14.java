@@ -12,7 +12,7 @@ public class Quiz14 {
 
             numbers[i] = scanner.nextInt();
         }
- 
+
         System.out.print("몇번째 수인가요? ");
         int index = scanner.nextInt();
         */
@@ -27,13 +27,13 @@ public class Quiz14 {
         if (index >= 1 && index <= 5) {
             System.out.println(numbers[index - 1]);
         } else {
-          }*/
+        }*/
         
         
-       /* int[] numbers2 = new int[5];
+    /* int[] numbers2 = new int[5];
         
         for (int i = 0; i < numbers2.length; i++) {
-        	numbers2[i] = scanner.nextInt();
+        numbers2[i] = scanner.nextInt();
         }
         
         for (int i = numbers2.length - 1; i >= 0; i--) {

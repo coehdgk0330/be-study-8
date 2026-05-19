@@ -24,7 +24,7 @@ public class Refer02 {
 			
 		}
 		
-		LikeIndex lil = LikeIndex.VERYGOOD;
+		/*LikeIndex lil = LikeIndex.VERYGOOD;
 		LikeIndex li2 = LikeIndex.NORMAL;
 		
 		if(lil == LikeIndex.VERYGOOD) {
@@ -40,7 +40,7 @@ public class Refer02 {
 		
 		if(w2 == Week.FRI) {
 			System.out.println("금요일 신나는 날");
-		}
+		}*/
 				
 	}
 
