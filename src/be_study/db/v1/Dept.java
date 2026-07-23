@@ -55,6 +55,13 @@ public class Dept {
 
 
 
+	@Override
+	public String toString() {
+		return "Dept [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
+	}
+
+
+
 	
 
 
