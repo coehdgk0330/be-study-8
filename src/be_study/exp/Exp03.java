@@ -66,6 +66,16 @@ public class Exp03 {
 		se.addItem2("둘");
 		
 		se.showList();
+		
+		try {
+			se.addItem9("아홉");
+		} catch (ListFullException e) {
+			e.printStackTrace();
+			System.out.println("addItem9");
+		} catch (InvaildParameterValueException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 }
@@ -134,9 +144,24 @@ class SampleEx {
 					list.add(s);
 				}
 			}
-			
+		}	
+			void addItem9(String s) throws ListFullException, InvaildParameterValueException  {		//예외발생 가능성 경고
+				
+				try {
+					list.add(s);
+				} catch (Exception e) {
+					
+					//if....
+					//파라미터 s 가 잘못된 값이 들어왔다?
+					
+					//저장 길이 꽉찼다?
+					
+					//문제가 발생 했다!
+					throw new ListFullException();
+				}
+			}	
 	
-	}
+	
 	void showList() {
 		if(list!=null) {
 		for(String s : list) {
@@ -149,3 +174,13 @@ class SampleEx {
 	
 
 }
+
+/*-------------------------------------------*/
+// Custom Exception
+
+class ListFullException extends Exception {}
+//Exception e = new ListFullException();
+
+class InvaildParameterValueException extends Exception {}
+
+class SuperHungryException extends Exception {}

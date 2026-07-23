@@ -50,7 +50,7 @@ public class LikePointMain {
 		case LikePoint.VERY_BAD:
 		}
 		
-		System.out.println(point(3));
+		//System.out.println(point(3));//
 	}
 
 }

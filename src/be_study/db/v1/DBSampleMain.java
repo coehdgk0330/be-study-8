@@ -24,7 +24,7 @@ public class DBSampleMain {
 		
 		System.out.println(dept1.toString());
 		
-		Dept dept2 = findDeptByDeptno(90);
+		Dept dept2 = findDeptByDeptno(30);
 		if(dept2 == null) {
 			System.out.println("90번에 해당하는 데이터가 없음");
 		}else {

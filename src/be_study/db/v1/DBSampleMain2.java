@@ -31,7 +31,10 @@ public class DBSampleMain2 {
 				System.out.println(d.toString());
 			}
 		}
+		if (deptList2 != null &&deptList2.size()>0 ) {
+			
 		}
+	}
 	
 	
 	public static List<Dept> findDeptList() {
