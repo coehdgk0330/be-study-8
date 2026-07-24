@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import be_study.quiz.quiz45.Product;
@@ -16,36 +17,59 @@ public class DBSampleMain {
 		//DB dept 테이블 관련 데이터 접근 담당 객체
 		DeptDAO deptDAO = new DeptDAO();
 		
-		//40번 부서의 이름 확인! ???? 정보가 어디에???
-		Dept dept1 = deptDAO.findDeptByDeptno(30);
-		System.out.println(dept1.getDname());
-		System.out.println(dept1.getDeptno());
+		//insert 저장
 		
-		System.out.println(dept1.toString());
-		
-		Dept dept2 = deptDAO.findDeptByDeptno(90);
-		if(dept2 == null) {
-			System.out.println("90번에 해당하는 데이터가 없구나~");
-		} else {
-			System.out.println(dept2.toString());
+		int result1 = deptDAO.saveDept(90, "DEV", "SEOUL");
+		if ( result1 > 0 ) {
+			System.out.println("저장 성공");
 		}
 		
-		Dept dept3 = deptDAO.findDeptByDname("ACCOUNTING");
-		System.out.println(dept3.toString());
+		Dept saveDept1 = new Dept();
+		saveDept1.setDeptno(91);
+		saveDept1.setDname("Adv");
+		saveDept1.setLoc("Busan");
 		
-		Dept dept4 = deptDAO.findDeptByDname("REST");
-		if(dept4 == null)
-			System.out.println("해당 부서는 없습니다.");
+		int result2 = deptDAO.saveDept(saveDept1);
+		if( result2 > 0 ) {
+			System.out.println("저장 성공2");
+		}
 		
+		int result3 = deptDAO.removeDept(90);
+		int result4 = deptDAO.removeDept(saveDept1);
 		
-		List<Dept> deptList = deptDAO.findDeptList();
-		if(deptList != null) {
+		if( result3 > 0 ) {
+			System.out.println("90번 부서 삭제");
+		}
+		
+		if( result4 > 0 ) {
+			System.out.println("91번 부서 삭제");
+		}
+		
+		//80번 부서 삭제
+		deptDAO.removeDept(80);
+		Dept rmd1 = new Dept (80, null, null);
+		deptDAO.removeDept(rmd1);
+		
+		//---------------------------------
+		
+		//여러개를 저장 하는 케이스
+		
+		List <Dept> saveDeptList = new ArrayList <Dept>();
+		saveDeptList.add( new Dept(81, "dn81", "loc81"));
+		saveDeptList.add( new Dept(82, "dn82", "loc82"));
+		saveDeptList.add( new Dept(83, "dn83", "loc83"));
+		
+		int result5 = 0;
+		for (Dept d : saveDeptList) {
+			int r = deptDAO.saveDept(d);
 			
-			for(Dept d : deptList) {
-				System.out.println(d.toString());
-			}
+			result5 += r;
+			if(r>0)
+				System.out.println("dept 저장 성공");
 		}
+		System.out.println("반복문 통해서 총 몇개가 저장되었나? 행의 수 합 : " + result5);
 		
+		//--------------------------------------------------------
 		
 		ProductDAO productDAO = new ProductDAO();
 		
@@ -66,6 +90,41 @@ public class DBSampleMain {
 		}
 		
 		
+		//--------------------------Update
+		
+		// 기존 값 조회 -> 보유 -> 일부 변경 -> 변경사항을 반영(DB저장/update)
+		
+		Dept up1 = deptDAO.findDeptByDeptno(81);
+		//pk 81 dept 항목 조회
+		// FE 사용자에게 표시
+		// 사용자가 변경할 값을 입력/수정
+		
+		//81   dn81    loc81
+		//81   dn81    ASAN
+		up1.setLoc("ASAN");
+		
+		int result10 = deptDAO.modifyDept(up1);
+		if(result10 > 0) {
+			System.out.println("업데이트 성공");
+		}
+		
+		Dept up2 = new Dept(82, "LAW", "");
+		int result11 = deptDAO.modifyDept(up2);
+		if(result11 > 0) {
+			System.out.println("업데이트 성공");
+		}
+		
+		Dept up3 = new Dept(83, null, "ULSAN");
+		int result12 = deptDAO.modifyDept(up3);
+		if(result12 > 0) {
+			System.out.println("업데이트 성공");
+		}
+		
+		Dept up4 = new Dept(81, "FREE","ASAN");
+		int result13 = deptDAO.modifyDept(up4);
+		if(result13 > 0) {
+			System.out.println("업데이트 성공");
+		}
 	}
 	
 }
