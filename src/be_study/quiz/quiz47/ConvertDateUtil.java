@@ -1,4 +1,4 @@
-package be_study.db.v3;
+package be_study.quiz.quiz47;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
