@@ -1,0 +1,40 @@
+package be_study.db.v4;
+
+import java.util.List;
+
+public class DBSampleMain {
+
+	public static void main(String[] args) {
+		
+		
+		//student
+		//department
+		
+		//BE 프로세스
+		
+		//조회 
+		//조회 ... DB조회
+		
+		//FE 화면 전달
+		
+		int pk = 9511; //이전 사용중에 해당 학생정보 조회 요청 -> pk 값 전달 활용
+		
+		//1) 각자 조회해서 각각 객체 전달
+		StudentDAO studentDAO = new StudentDAO();
+		StudentDTO s1 = studentDAO.findStudentListByStudno(pk);
+		System.out.println(s1);
+		
+		DepartmentDAO departmentDAO = new DepartmentDAO();
+		DepartmentDTO d1 = departmentDAO.findDepartmentByDeptno( s1.getDeptno1());
+		System.out.println(d1);
+		
+		System.out.println(s1.getName() + " " + d1.getDname());
+		
+		
+		//2) join 쿼리 포함해서 한번 합쳐진 DTO 객체로 전달
+		
+		StudentMypageDTO smDTO = studentDAO.findStudentMypageByStudno(pk);
+		System.out.println(smDTO);
+	}
+
+}
