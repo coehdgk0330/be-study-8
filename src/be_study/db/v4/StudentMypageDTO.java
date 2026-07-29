@@ -129,4 +129,14 @@ public class StudentMypageDTO {
 		this.build = build;
 	}
 	
+	@Override
+	public String toString() {
+		return "StudentMypageDTO [studno=" + studno + ", name=" + name + ", id=" + id + ", grade=" + grade + ", jumin="
+				+ jumin + ", birthday=" + birthday + ", tel=" + tel + ", height=" + height + ", weight=" + weight
+				+ ", deptno1=" + deptno1 + ", deptno2=" + deptno2 + ", profno=" + profno + ", deptno=" + deptno
+				+ ", dname=" + dname + ", part=" + part + ", build=" + build + "]";
+	}
+	
+	
+	
 }

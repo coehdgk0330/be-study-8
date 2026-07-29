@@ -6,7 +6,7 @@ public class Quiz48Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		List<Quiz48MainDTO> list = Quiz48MainDAO.findStudentScoreStudno();
+		List<Quiz48MainDTO> list = Quiz48MainDAO.findStudentScoreStudno(101);
 
 		for(Quiz48MainDTO dto : list ) {
 			System.out.println(dto);

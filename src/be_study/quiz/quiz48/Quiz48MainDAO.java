@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Quiz48MainDAO {
 
-	public static List<Quiz48MainDTO> findStudentScoreStudno() {
+	public static List<Quiz48MainDTO> findStudentScoreStudno(int deptno) {
 
 		// db 연결, 실행 객체
 		Connection conn = null; // db 연결
@@ -26,8 +26,7 @@ public class Quiz48MainDAO {
                 + "FROM student s, score sc, hakjum h "
                 + "WHERE s.studno = sc.studno "
                 + "  AND sc.total BETWEEN h.min_point AND h.max_point "
-                + " and sc.total > 70 "
-                + " and s.deptno1 = 101 ";
+                + " and s.deptno1 = ? ";
 				
 
 		List<Quiz48MainDTO>list = new ArrayList<>();
@@ -36,6 +35,8 @@ public class Quiz48MainDAO {
 		try {
 
 			psmt = conn.prepareStatement(sqlQuery);
+			 
+			psmt.setInt(1,deptno);
 			
 			rs = psmt.executeQuery();
 
