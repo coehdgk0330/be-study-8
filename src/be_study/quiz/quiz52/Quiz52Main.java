@@ -21,7 +21,7 @@ public class Quiz52Main {
 	
 	
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
+		
 		String jsonString = "{\r\n"
 				+ "\"id\": 1,\r\n"
 				+ "\"name\": \"John Doe\",\r\n"
